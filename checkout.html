@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Lip Glaze</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation bar -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">Lip&nbsp;Glaze</a>
+            <nav class="nav-links">
+                <a href="index.html#products" data-i18n="navProducts">Products</a>
+                <a href="shade-finder.html" data-i18n="navShadeFinder">Shade Finder</a>
+                <a href="#" class="cart-link" data-i18n="navCart">
+                    <span data-i18n="navCart">Cart</span>
+                    <span class="cart-count" id="navCartCount">0</span>
+                </a>
+                <select id="languageSelect" class="language-select">
+                    <option value="en">EN</option>
+                    <option value="id">ID</option>
+                </select>
+            </nav>
+        </div>
+        <!-- Mini cart dropdown -->
+        <div id="cartMenu" class="cart-menu">
+            <h3 id="miniCartTitle"></h3>
+            <ul id="miniCartItems"></ul>
+            <div class="mini-cart-total">
+                <span id="miniCartTotalLabel"></span>
+                <span id="miniCartTotalPrice">0</span>
+            </div>
+            <div class="mini-cart-actions">
+                <a href="cart.html" id="miniViewCartBtn" class="btn-primary"></a>
+                <a href="checkout.html" id="miniCheckoutBtn" class="btn-primary"></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="checkout-container animate-on-scroll">
+        <h2 class="animate-on-scroll" data-i18n="checkoutTitle">Checkout</h2>
+        <form id="checkoutForm" class="checkout-form animate-on-scroll">
+            <h3 data-i18n="shippingInfo">Shipping Information</h3>
+            <label for="fullName" data-i18n="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Your name" required>
+
+            <label for="email" data-i18n="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+            <label for="address" data-i18n="address">Address</label>
+            <textarea id="address" name="address" placeholder="Street, City, Province" required></textarea>
+
+            <label for="phone" data-i18n="phoneNumber">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="08xxxxxxxxxx" required>
+
+            <h3 data-i18n="paymentMethod">Payment Method</h3>
+            <div class="payment-options">
+                <label>
+                    <input type="radio" name="paymentMethod" value="card" checked>
+                    <span data-i18n="creditCard">Credit Card</span>
+                </label>
+                <label>
+                    <input type="radio" name="paymentMethod" value="ewallet">
+                    <span data-i18n="ewallet">E‑Wallet</span>
+                </label>
+            </div>
+
+            <!-- Credit card fields -->
+            <div id="cardFields">
+                <label for="cardName" data-i18n="cardName">Name on Card</label>
+                <input type="text" id="cardName" name="cardName" placeholder="Name on card">
+
+                <label for="cardNumber" data-i18n="cardNumber">Card Number</label>
+                <input type="text" id="cardNumber" name="cardNumber" minlength="16" maxlength="16" pattern="\d{16}" placeholder="16‑digit card number">
+
+                <label for="expiry" data-i18n="expiry">Expiry Date (MM/YY)</label>
+                <input type="text" id="expiry" name="expiry" pattern="(0[1-9]|1[0-2])\/\d{2}" placeholder="MM/YY">
+
+                <label for="cvv" data-i18n="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" minlength="3" maxlength="4" pattern="\d{3,4}" placeholder="3 or 4 digit code">
+            </div>
+
+            <!-- E‑wallet fields -->
+            <div id="ewalletFields" class="hidden">
+                <label for="ewalletProvider" data-i18n="ewalletProvider">E‑Wallet Provider</label>
+                <select id="ewalletProvider" name="ewalletProvider">
+                    <option value="">Select provider</option>
+                    <option value="OVO">OVO</option>
+                    <option value="GoPay">GoPay</option>
+                    <option value="Dana">Dana</option>
+                    <option value="LinkAja">LinkAja</option>
+                </select>
+
+                <label for="ewalletNumber" data-i18n="ewalletNumber">E‑Wallet Number</label>
+                <input type="tel" id="ewalletNumber" name="ewalletNumber" placeholder="08xxxxxxxxxx">
+            </div>
+
+            <button type="submit" data-i18n="placeOrder">Place Order</button>
+        </form>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; <span id="year"></span> Lip Glaze. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

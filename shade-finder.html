@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shade Finder - Lip Glaze</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation bar -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">Lip&nbsp;Glaze</a>
+            <nav class="nav-links">
+                <a href="index.html#products" data-i18n="navProducts">Products</a>
+                <a href="shade-finder.html" data-i18n="navShadeFinder">Shade Finder</a>
+                <a href="#" class="cart-link" data-i18n="navCart">
+                    <span data-i18n="navCart">Cart</span>
+                    <span class="cart-count" id="navCartCount">0</span>
+                </a>
+                <select id="languageSelect" class="language-select">
+                    <option value="en">EN</option>
+                    <option value="id">ID</option>
+                </select>
+            </nav>
+        </div>
+        <!-- Mini cart dropdown -->
+        <div id="cartMenu" class="cart-menu">
+            <h3 id="miniCartTitle"></h3>
+            <ul id="miniCartItems"></ul>
+            <div class="mini-cart-total">
+                <span id="miniCartTotalLabel"></span>
+                <span id="miniCartTotalPrice">0</span>
+            </div>
+            <div class="mini-cart-actions">
+                <a href="cart.html" id="miniViewCartBtn" class="btn-primary"></a>
+                <a href="checkout.html" id="miniCheckoutBtn" class="btn-primary"></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Shade Finder Main Content -->
+    <main class="container shade-finder-container animate-on-scroll">
+        <h2 class="section-title animate-on-scroll" data-i18n="shadeFinderTitle">Shade Finder</h2>
+        <p class="animate-on-scroll" data-i18n="shadeFinderIntro">Select your skin tone to get personalized recommendations.</p>
+        <!-- Shade selection options -->
+        <div class="shade-options animate-on-scroll">
+            <label>
+                <input type="radio" name="skinTone" value="fair">
+                <span data-i18n="toneFair">Fair</span>
+            </label>
+            <label>
+                <input type="radio" name="skinTone" value="medium">
+                <span data-i18n="toneMedium">Medium</span>
+            </label>
+            <label>
+                <input type="radio" name="skinTone" value="tan">
+                <span data-i18n="toneTan">Tan</span>
+            </label>
+            <label>
+                <input type="radio" name="skinTone" value="deep">
+                <span data-i18n="toneDeep">Deep</span>
+            </label>
+        </div>
+        <button id="shadeFinderBtn" class="btn-primary animate-on-scroll" data-i18n="findShade">Find My Shade</button>
+        <!-- Recommendations section -->
+        <section id="shadeResult" class="shade-result hidden animate-on-scroll">
+            <h3 class="section-title" data-i18n="recommendedProducts">Recommended Products</h3>
+            <div id="shadeRecommendations" class="product-grid"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; <span id="year"></span> Lip Glaze. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Update footer year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

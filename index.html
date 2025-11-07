@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lip Glaze Catalog</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation bar -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">Lip&nbsp;Glaze</a>
+            <nav class="nav-links">
+                <a href="#products" data-i18n="navProducts">Products</a>
+                <a href="shade-finder.html" data-i18n="navShadeFinder">Shade Finder</a>
+                <a href="#" class="cart-link" data-i18n="navCart">
+                    <span data-i18n="navCart">Cart</span>
+                    <span class="cart-count" id="navCartCount">0</span>
+                </a>
+                <select id="languageSelect" class="language-select">
+                    <option value="en">EN</option>
+                    <option value="id">ID</option>
+                </select>
+            </nav>
+        </div>
+        <!-- Mini cart dropdown -->
+        <div id="cartMenu" class="cart-menu">
+            <h3 id="miniCartTitle"></h3>
+            <ul id="miniCartItems"></ul>
+            <div class="mini-cart-total">
+                <span id="miniCartTotalLabel"></span>
+                <span id="miniCartTotalPrice">0</span>
+            </div>
+            <div class="mini-cart-actions">
+                <a href="cart.html" id="miniViewCartBtn" class="btn-primary"></a>
+                <a href="checkout.html" id="miniCheckoutBtn" class="btn-primary"></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero section -->
+    <section class="hero">
+        <div class="container hero-content animate-on-scroll">
+            <h1 class="hero-title">Discover Your Perfect Lip Glaze</h1>
+            <p class="hero-subtitle">Explore our curated collection of luscious shades and finishes.</p>
+            <a href="#products" class="btn-primary">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Products section -->
+    <section id="products" class="products-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll" data-i18n="sectionFeatured">Featured Products</h2>
+            <!-- Filter controls for category and price sorting -->
+            <div class="filters animate-on-scroll">
+                <div class="filter-group">
+                    <label for="categorySelect" data-i18n="filterCategoryLabel">Category:</label>
+                    <select id="categorySelect">
+                        <option value="all" data-i18n="categoryAll">All</option>
+                        <option value="Classic" data-i18n="categoryClassic">Classic</option>
+                        <option value="Glossy" data-i18n="categoryGlossy">Glossy</option>
+                        <option value="Set" data-i18n="categorySet">Set</option>
+                        <option value="Luxury" data-i18n="categoryLuxury">Luxury</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="priceSortSelect" data-i18n="filterPriceLabel">Sort by:</label>
+                    <select id="priceSortSelect">
+                        <option value="default" data-i18n="priceDefault">Default</option>
+                        <option value="asc" data-i18n="priceLowHigh">Price: Low - High</option>
+                        <option value="desc" data-i18n="priceHighLow">Price: High - Low</option>
+                    </select>
+                </div>
+            </div>
+            <div class="product-grid" id="productGrid">
+                <!-- Products will be injected here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll" data-i18n="testimonialsTitle">Testimonials</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card animate-on-scroll">
+                    <p>"Produk ini luar biasa! Warna pink-nya cocok untuk sehari-hari dan tahan lama."</p>
+                    <span>- Ayu, Jakarta</span>
+                </div>
+                <div class="testimonial-card animate-on-scroll">
+                    <p>"Saya suka set Trio Blossom karena variasinya. Kemasan travel-friendly sangat praktis."</p>
+                    <span>- Rina, Bandung</span>
+                </div>
+                <div class="testimonial-card animate-on-scroll">
+                    <p>"Golden Glam memberikan efek mewah dengan shimmer emasnya. Sangat puas!"</p>
+                    <span>- Maya, Surabaya</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; <span id="year"></span> RAHMAT AKBAR UTAMA. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <div id="productModal" class="modal">
+        <div class="modal-content animate-on-scroll">
+            <span class="modal-close">&times;</span>
+            <img id="modalImage" src="" alt="" class="modal-image">
+            <h3 id="modalName"></h3>
+            <p id="modalDesc"></p>
+            <p id="modalDetails"></p>
+        </div>
+    </div>
+</body>
+</html>
